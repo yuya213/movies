@@ -27,14 +27,16 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
     get "search" => "searches#search"
     
-    resources :customers, only:[:index, :show, :edit, :update, :quit, :out] do
+    resources :customers, only:[:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
-      get 'follower' => 'relationships#follower', as: 'follower'
-      get 'followed' => 'relationships#followed', as: 'followed'
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
     end
+    get "customers/:id/quit" => "customers#quit", as: "quit_customer"
+    patch "customers/:id/out" => "customers#out", as: "out_customer"
     
     resources :movies, only: [:index, :show]
-    resources :reviews, only:[:index, :show, :edit, :create, :destory]
+    resources :reviews, only:[:index, :show, :edit, :new, :create, :destory]
     
 end
 

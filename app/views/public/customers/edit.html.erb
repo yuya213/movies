@@ -1,2 +1,29 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container-xxl mt-5 mx-5">
+  <h2>会員情報編集</h2>
+    <div class="customer-edit row mt-5 margin-left: 0; margin-right: 0; padding-left: 0;">
+      <div class="col-6">
+        <%= form_with model: @customer, url: customer_path, class: "col-12", local: true do |f| %>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>画像</td>
+                <td><%= f.file_field :profile_image, autocomplete: "image/*" %></td>
+              </tr>
+              <tr>
+                <td>名前</td>
+                <td><%= f.text_field :name, autocomplete: "name" %></td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td><%= f.email_field :email, autocomplete: "email" %></td>
+              </tr>
+              <tr>
+                <td><%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %></td>
+                <td><%= link_to "退会する", quit_customer_path, class: "btn btn-danger ml-5" %></td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+      </div>
+    </div>
+</div>
