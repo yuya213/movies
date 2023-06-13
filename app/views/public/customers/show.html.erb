@@ -2,13 +2,13 @@
   <div class='row'>
     <div class='col-md-3'>
      <h2>会員情報</h2>
-     <%= render 'info', customer: current_customer %>
+     <%= render 'info', customer: @customer %>
     </div>
-    
-    
+
+
     <div class='col-md-8 offset-md-1'>
       <h2>投稿一覧</h2>
-      <%= render 'reviews/index',books: @books %>
+      <%= render 'review', reviews: @reviews %>
     </div>
   </div>
 </div>
