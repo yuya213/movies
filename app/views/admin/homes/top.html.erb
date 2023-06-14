@@ -1,2 +1,46 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-1 mx-auto mt-3">
+      <h3>レビュー管理一覧</h3>
+       <table class="table">
+        <thead>
+          <th class="table-active">投稿日時</th>
+          <th class="table-active">映画</th>
+          <th class="table-active">会員</th>
+          <th class="table-active">レビュー</th>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+           <tr>
+              <!--投稿日時-->
+              <td class = "align-middle link">
+               <%= link_to admin_review_path(review),data: {"turbolinks"=>false} do %>
+                 <%= review.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
+               <% end %>
+              </td>
+              <!--映画-->
+              <td class = "align-middle">
+               <%= link_to admin_movie_path(movie.id) do %>
+               <%= image_tag review.movie.image, size: '190x120' %>
+               <% end %>
+              </td>
+              <!--会員-->
+              <td class = "align-middle">
+               <%= review.customer.name %>
+              </td>
+              <!--レビュー-->
+              <td class = "align-middle">
+               <%= review.introduction %>
+              </td>
+           </tr>
+               <% end %>
+          </tbody>
+       </table>
+     <%= paginate @reviews %>
+   </div>
+  </div>
+ </div>
+ 
+ 
