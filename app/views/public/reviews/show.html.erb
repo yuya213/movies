@@ -1,2 +1,19 @@
-<h1>Public::Reviews#shoe</h1>
-<p>Find me in app/views/public/reviews/shoe.html.erb</p>
+         <h2>レビュー情報</h2>
+  		<table class='table'>
+  		  <tr>
+          <td><%= link_to(@review.customer) do %>
+            <%= image_tag @review.customer.get_profile_image, size:"100x100" %><br>
+            <%= @review.customer.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @review.title, @review %></td>
+          <td><%= @review.review %></td>
+            <% if @review.customer == current_customer %>
+            <td><%= link_to 'Edit', edit_review_path(@review), class: "btn btn-sm btn-success" %></td>
+            <% end %>
+            
+            <% if @review.customer == current_customer %>
+            <td><%= link_to 'Destroy', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+            <% end %>
+        </tr>
+      </table>

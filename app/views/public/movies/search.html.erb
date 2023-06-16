@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row my-3">
         <div class="col-sm-8 px-sm-0 offset-sm-1">
-<h1>映画検索</h1>
+<h1>映画一覧</h1>
 
 <div>
   <%= form_tag(search_path, method: :get) do %>
@@ -30,12 +30,11 @@
                 </div>
 
 
-                <%= link_to movie_path(movie.id) do %>
+                
                 <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
                     <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'],class: "card-img" %></p>
                 <%end%>
             </div>
-                <%end%>
             <% i += 1%>
         <%end%>
     </div>
@@ -57,13 +56,11 @@
                         <p class="release-date"><%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
                     <%end%>
                 </div>
-                
-                <%= link_to movie_path(movie.id) do %>
+
                 <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
                     <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'],class: "card-img" %></p>
                 <%end%>
             </div>
-                <%end%>
 
             <% i += 1%>
         <%end%>
