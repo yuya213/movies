@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-9 mx-auto">
@@ -8,7 +10,7 @@
         <span class="ml-3">
             <div class="item-container">
   <%= link_to movie_path(movie.id) do %>
-  <%= image_tag movie.image, size: '190x120' %>
+  <img src="<%= movie.movie_image() %>" alt="<%= movie.name %>">
   <% end %>
   <p>
     <%= link_to movie_path(movie.id), class: "btn-link text-dark" do %>

@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'kaminari','~> 1.2.1'
 gem "enum_help"
+gem 'httparty'
+gem 'themoviedb-api', '~> 1.3'
+gem 'dotenv-rails'
