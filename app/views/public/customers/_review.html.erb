@@ -1,8 +1,8 @@
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
-      <th>映画</th>
-      <th>題名</th>
+      <th></th>
+      <th>映画タイトル</th>
       <th>レビュー</th>
       <th colspan="3"></th>
     </tr>
@@ -11,11 +11,11 @@
     <% reviews.each do |review| %>
       <tr>
         <td><%= link_to(review.movie) do %>
-          <%= image_tag review.movie.image, size:'50x50' %>
+          <%= image_tag review.customer.get_profile_image, size:'50x50' %>
           <% end %>
         </td>
-        <td><%= review.movie.name %></td>
-        <td><%= review.introduction %></td>
+        <td><%= review.title %></td>
+        <td><%= review.review %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,2 +1,27 @@
-<h1>Public::Reviews#index</h1>
-<p>Find me in app/views/public/reviews/index.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>映画タイトル</th>
+      <th>レビュー</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= link_to(review.customer) do %>
+          <%= image_tag review.customer.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= review.title %></td>
+        <td><%= review.review %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
