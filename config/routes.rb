@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
-    get "search" => "searches#search"
+    #get "search" => "searches#search"
     
     resources :customers, only:[:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     patch "customers/:id/out" => "customers#out", as: "out_customer"
     
     resources :movies, only: [:index, :show]
+    get "search" => "movies#search", as: "search"
     resources :reviews, only:[:index, :show, :edit, :new, :create, :destory]
     
 end
