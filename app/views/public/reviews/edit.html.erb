@@ -1,2 +1,9 @@
-<h1>Public::Reviews#edit</h1>
-<p>Find me in app/views/public/reviews/edit.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>レビュー変更</h1>
+      <%= render 'new', review: @review %>
+      <%= link_to 'Show', @review %> |
+  		<%= link_to 'Back', reviews_path, class: "back" %>
+  	</div>
+</div>

@@ -7,7 +7,7 @@
        <table class="table">
         <thead>
           <th class="table-active">投稿日時</th>
-          <th class="table-active">映画</th>
+          <!--th class="table-active">映画</th-->
           <th class="table-active">会員</th>
           <th class="table-active">レビュー</th>
         </thead>
@@ -21,10 +21,10 @@
                <% end %>
               </td>
               <!--映画-->
-              <td class = "align-middle">
-               <%= link_to admin_movie_path(movie.id) do %>
-               <%= image_tag review.movie.image, size: '190x120' %>
-               <% end %>
+              <!--td class = "align-middle">
+               <!%= link_to admin_movie_path(movie.id) do %>
+               <!%= image_tag review.movie.image, size: '190x120' %>
+               <!% end %>
               </td>
               <!--会員-->
               <td class = "align-middle">
@@ -32,7 +32,7 @@
               </td>
               <!--レビュー-->
               <td class = "align-middle">
-               <%= review.introduction %>
+               <%= review.review %>
               </td>
            </tr>
                <% end %>

@@ -8,6 +8,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @reviews = @customer.reviews
+    @review = Review.find(params[:id])
   end
 
   def edit
@@ -39,7 +40,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :profile_image, :email)
+    params.require(:customer).permit(:name, :profile_image, :email, :introduction)
   end
 
   def ensure_correct_customer
