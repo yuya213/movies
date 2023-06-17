@@ -1,7 +1,14 @@
-<div class='container'>
+<div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-<table class='table table-hover table-inverse'>
+    <div class='col-md-3'>
+
+    <%= render 'new', review: @review %>
+
+    </div>
+
+     <div class='col-md-8 offset-md-1'>
+      <h2>投稿一覧</h2>
+      <table class='table table-hover table-inverse'>
   <thead>
     <tr>
       <th></th>
@@ -13,15 +20,20 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
-        <td><%= link_to(review.customer) do %>
+        <td><%= link_to(review) do %>
           <%= image_tag review.customer.get_profile_image, size:'50x50' %>
           <% end %>
         </td>
         <td><%= review.title %></td>
         <td><%= review.review %></td>
+        <td>
+           コメント数：<%= review.comments.count %>
+         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+    </div>
+
 </div>
 </div>

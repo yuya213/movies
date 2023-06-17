@@ -1,3 +1,6 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
          <h2>レビュー情報</h2>
   		<table class='table'>
   		  <tr>
@@ -15,5 +18,18 @@
             <% if @review.customer == current_customer %>
             <td><%= link_to 'Destroy', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
             <% end %>
+            <td>コメント数：<%= @review.comments.count %></td>
         </tr>
       </table>
+      
+      <div id="comments">
+       <%= render "comments/show" , { review: @review , comment: @comment } %><br>
+     </div>
+      
+      <div id="comment_forms">
+       <%= render "comments/form" , { review: @review , comment: @comment } %>
+     </div>
+     
+    </div>
+  </div>
+</div>

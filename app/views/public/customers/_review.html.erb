@@ -10,7 +10,7 @@
   <tbody>
     <% reviews.each do |review| %>
       <tr>
-        <td><%= link_to(review.movie) do %>
+        <td><%= link_to(review) do %>
           <%= image_tag review.customer.get_profile_image, size:'50x50' %>
           <% end %>
         </td>

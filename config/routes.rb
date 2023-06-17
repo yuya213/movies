@@ -37,8 +37,10 @@ Rails.application.routes.draw do
     
     resources :movies, only: [:index, :show]
     get "search" => "movies#search", as: "search"
-    resources :reviews, only:[:index, :show, :edit, :new, :create, :destory]
+    resources :reviews, only:[:index, :show, :edit, :new, :create, :destroy, :update] do
+     resources :comments, only: [:create, :destroy]
+    end
     
-end
+  end
 
 end
