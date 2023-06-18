@@ -1,2 +1,19 @@
-<h1>Admin::Reviews#show</h1>
-<p>Find me in app/views/admin/reviews/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-1 mx-auto mt-3">
+      <h2>レビュー情報</h2>
+  		<table class='table'>
+  		  <tr>
+          <td><%= link_to(@review.customer) do %>
+            <%= image_tag @review.customer.get_profile_image, size:"100x100" %><br>
+            <%= @review.customer.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @review.title, @review %></td>
+          <td><%= @review.review %></td>
+          <td><%= link_to '削除', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+        </tr>
+       </table>
+      </div>
+  </div>
+</div>
