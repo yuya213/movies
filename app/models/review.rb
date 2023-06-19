@@ -5,11 +5,25 @@ class Review < ApplicationRecord
   has_many :comments
 
   # optionalで、movie_idがなくても保存できるようにしている
-  # 今後、movie.ジャンルが完成次第、optionalを外して関連付ける予定
   belongs_to :movie, optional: true
 
   validates :title, presence: true
   validates :review, presence: true, length: {maximum:200}
+  
+  
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @review = Review.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @review = Review.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @review = Review.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @review = Review.where("title LIKE?","%#{word}%")
+    else
+      @review = Review.all
+    end
+  end
 
 
 

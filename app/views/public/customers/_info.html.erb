@@ -6,7 +6,7 @@
   </tr>
   
   <tr>
-	  <th>コメント</th>
+	  <th>自己紹介</th>
 	  <th><%= customer.introduction %></th>
   </tr>
 
@@ -21,7 +21,7 @@
   <tr>
     <th>フォロワー</th>
     <th>
-      <a href=　<%= customer_followers_path(customer) %> >
+      <a href= <%= customer_followers_path(customer) %> >
       <%= customer.followers.count %>
      </a>
     </th>
