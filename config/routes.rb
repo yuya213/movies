@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
     resources :genres, only:[:index, :edit, :create, :update]
     resources :movies, only:[:index, :new, :create, :show, :edit, :update]
-    resources :reviews, only:[:show, :update, :destory]
+    resources :reviews, only:[:show, :update, :destroy]
   end
   
   

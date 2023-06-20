@@ -9,6 +9,7 @@
           <th class="table-active">投稿日時</th>
           <th class="table-active">会員</th>
           <th class="table-active">映画</th>
+          <th class="table-active">ジャンル</th>
           <th class="table-active">レビュー</th>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
               <td class = "align-middle">
                <%= review.title %>
               </td>
+              <!--ジャンル-->
+              <td class = "align-middle">
+               <%= review.genre.name %>
               <!--レビュー-->
               <td class = "align-middle">
                <%= review.review %>
