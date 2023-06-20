@@ -1,4 +1,4 @@
-class Public::SearchsController < ApplicationController
+class Public::SearchesController < ApplicationController
   before_action :authenticate_customer!
 
   def search
@@ -11,5 +11,5 @@ class Public::SearchsController < ApplicationController
       @reviews = Review.looks(params[:search], params[:word])
     end
   end
-  
+
 end
