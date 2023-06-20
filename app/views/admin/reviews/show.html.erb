@@ -4,12 +4,12 @@
       <h2>レビュー情報</h2>
   		<table class='table'>
   		  <tr>
-          <td><%= link_to(@review.customer) do %>
+          <td>
             <%= image_tag @review.customer.get_profile_image, size:"100x100" %><br>
             <%= @review.customer.name %>
-            <% end %>
           </td>
-          <td><%= link_to @review.title, @review %></td>
+          <td><%= @review.title %></td>
+          <td><%= @review.genre.name %></td>
           <td><%= @review.review %></td>
           <td><%= link_to '削除', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
         </tr>
