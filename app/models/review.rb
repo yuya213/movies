@@ -3,6 +3,7 @@ class Review < ApplicationRecord
 
   belongs_to :customer
   has_many :comments
+  belongs_to :genre
 
   # optionalで、movie_idがなくても保存できるようにしている
   belongs_to :movie, optional: true
