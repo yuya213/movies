@@ -11,8 +11,8 @@ class Review < ApplicationRecord
 
   validates :title, presence: true
   validates :review, presence: true, length: {maximum:200}
-  
-  
+
+
   def self.looks(search, word)
     if search == "perfect_match"
       @review = Review.where("title LIKE?","#{word}")
@@ -25,6 +25,10 @@ class Review < ApplicationRecord
     else
       @review = Review.all
     end
+  end
+
+  def favorited_by?(customer)
+    favorites.where(customer_id: customer.id).exists?
   end
 
 

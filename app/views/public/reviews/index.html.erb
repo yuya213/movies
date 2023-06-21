@@ -28,6 +28,9 @@
         <td><%= review.title %></td>
         <td><%= review.genre.name %></td>
         <td><%= review.review %></td>
+        <td id="favorite_buttons_<%= review.id %>">
+         <%= render "public/favorites/like", review: review %>
+        </td>
         <td>
            コメント数：<%= review.comments.count %>
          </td>
