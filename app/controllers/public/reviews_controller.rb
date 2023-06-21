@@ -1,5 +1,4 @@
 class Public::ReviewsController < ApplicationController
-  before_action :authenticate_customer
   before_action :ensure_correct_customer, only: [:edit, :update]
   # ゲストユーザーとしてログインした場合は閲覧を制限する
   # before_action :guest_check, only: [:new, :create, :update, :destroy]

@@ -1,0 +1,11 @@
+<% review.comments.each do |comment| %>
+       <p>
+        <%= image_tag comment.customer.get_profile_image, size:"50x50" %>
+        <%= comment.comment %>
+
+        <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, data: {"turbolinks" => false} , class: "btn btn-sm btn-danger"  %>
+
+        <br>
+        <%= review.customer.name %>
+       </p>
+      <% end %>
