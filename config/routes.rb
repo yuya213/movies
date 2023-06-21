@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     get "searches" => "movies#search", as: "movies_search"
     resources :reviews, only:[:index, :show, :edit, :new, :create, :destroy, :update] do
      resources :comments, only: [:create, :destroy]
+     resource :favorites, only: [:create, :destroy]
     end
     
   end

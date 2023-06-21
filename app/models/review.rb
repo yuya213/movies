@@ -2,8 +2,9 @@ class Review < ApplicationRecord
 
 
   belongs_to :customer
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :genre
+  has_many :favorites, dependent: :destroy
 
   # optionalで、movie_idがなくても保存できるようにしている
   belongs_to :movie, optional: true
