@@ -49,6 +49,9 @@ Rails.application.routes.draw do
     resources :movies, only: [:index, :show]
     get "searches" => "movies#search", as: "movies_search"
     resources :reviews, only:[:index, :show, :edit, :new, :create, :destroy, :update] do
+      collection do
+          get 'genre/:id' =>'reviews#genre', as: 'genre'
+        end
      resources :comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
     end
