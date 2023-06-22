@@ -1,0 +1,22 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      
+      <h1><%= @genre.name %>の投稿一覧</h1>
+
+<% @review.each do |review| %>
+  <div class="user-image-name">
+    <%= image_tag review.customer.get_profile_image(100, 100) %><!--ユーザ画像-->
+    <%= review.customer.name %><!--ユーザーネーム-->
+  </div>
+  <div class="post_card">
+    <h2><%= review.title %></h2>
+    <p>ジャンル名：<%= review.genres.map(&:name).join(', ') %></p>
+    <p><%= review.review %></p>
+  </div>
+  <div class="user-info">
+  </div>
+<% end %>
+</div>
+  </div>
+</div>

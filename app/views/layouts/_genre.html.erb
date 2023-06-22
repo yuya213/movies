@@ -1,0 +1,4 @@
+
+          <% Genre.all.each do |genre| %>
+            <%= link_to genre.name, genre_posts_path(genre) %>
+          <% end %>
