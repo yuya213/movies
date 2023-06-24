@@ -3,6 +3,8 @@
 class Public::SessionsController < Devise::SessionsController
   before_action :reject_customer, only: [:create]
   
+  
+  
   private
 
   def reject_customer

@@ -4,6 +4,11 @@
 	  <th>名前</th>
 	  <th><%= customer.name %></th>
   </tr>
+  
+  <tr>
+	  <th>自己紹介</th>
+	  <th><%= customer.introduction %></th>
+  </tr>
 
   <tr>
     <th>フォロー</th>
@@ -16,7 +21,7 @@
   <tr>
     <th>フォロワー</th>
     <th>
-      <a href=　<%= customer_followers_path(customer) %> >
+      <a href= <%= customer_followers_path(customer) %> >
       <%= customer.followers.count %>
      </a>
     </th>
@@ -42,4 +47,8 @@
     </div>
 
   <% end %>
-</div>
+  </div>
+  
+   <div class='row'>
+      <%= link_to "レビューを書く", new_review_path(customer), class:"btn btn-success" %>
+    </div>

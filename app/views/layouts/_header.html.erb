@@ -19,13 +19,18 @@
             <% end %>
           </li>
           <li>
-            <%= link_to movies_path, class:'nav-link text-light' do %>
+            <%= link_to movies_search_path, class:'nav-link text-light' do %>
             <i class="fas fa-cookie-bite"></i> 映画一覧
             <% end %>
           </li>
           <li>
             <%= link_to customers_path, class:'nav-link text-light' do %>
             <i class="fas fa-shopping-cart"></i>会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to reviews_path, class:'nav-link text-light' do %>
+            <i class="fas fa-list-ol"></i>レビュー一覧
             <% end %>
           </li>
           <li>
@@ -36,14 +41,9 @@
 
         <!--管理者ログイン-->
         <% elsif admin_signed_in? %>
-          <div class="mr-8 mt-2">
+          <div class="mr-8 mt-2 text-light">
               <i class="fas fa-user-astronaut"></i>管理者ログイン<i class="fas fa-user-astronaut"></i>
           </div>
-          <li>
-            <%= link_to admin_movies_path, class:'text-light' do %>
-            <i class="fas fa-list-ol"></i>映画一覧
-            <% end %>
-          </li>
           <li>
             <%= link_to admin_customers_path, class:'nav-link text-light' do %>
             <i class="fas fa-users"></i>会員一覧
@@ -67,7 +67,7 @@
 
           <!--未ログイン-->
         <% else %>
-        <div class="mr-8 mt-2">
+        <div class="mr-8 mt-2 text-light">
           <i class="far fa-smile"></i>ようこそ、ゲスト様<i class="far fa-smile"></i>
         </div>
           <li>
@@ -76,7 +76,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to movies_path, class:'nav-link text-light' do %>
+            <%= link_to movies_search_path, class:'nav-link text-light' do %>
             <i class="fas fa-list-ol"></i>映画一覧
             <% end %>
           </li>

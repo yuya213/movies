@@ -1,2 +1,23 @@
-<h1>Admin::Reviews#show</h1>
-<p>Find me in app/views/admin/reviews/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-1 mx-auto mt-3">
+      <h2>レビュー情報</h2>
+  		<table class='table'>
+  		  <tr>
+          <td>
+            <%= image_tag @review.customer.get_profile_image, size:"100x100" %><br>
+            <%= @review.customer.name %>
+          </td>
+          <td><%= @review.title %></td>
+          <td><%= @review.genre.name %></td>
+          <td><%= @review.review %></td>
+          <td><%= link_to '削除', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+          <td>コメント数：<%= @review.comments.count %></td>
+        </tr>
+       </table>
+        <div id="comments">
+          <%= render "admin/comments/show" , { review: @review , comment: @comment } %><br>
+        </div>
+      </div>
+  </div>
+</div>
