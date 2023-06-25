@@ -48,6 +48,11 @@ class Public::ReviewsController < ApplicationController
     @comment = Comment.new
   end
 
+  def genre
+    @genre = Genre.find(params[:id])
+    @review = @genre.review.page(params[:page])
+  end
+
   def ensure_correct_customer
     @review = Review.find(params[:id])
     @customer = @review.customer
@@ -58,6 +63,10 @@ class Public::ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :review, :customer_id, :genre_id)
+  end
+
+  def genre_params
+    params.require(:review).permit(:genre_name)
   end
 
 end
