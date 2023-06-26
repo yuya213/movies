@@ -9,8 +9,8 @@ class Review < ApplicationRecord
   # optionalで、movie_idがなくても保存できるようにしている
   belongs_to :movie, optional: true
 
-  validates :title, presence: true
-  validates :review, presence: true, length: {maximum:200}
+  validates :title, presence: true, on: :publicize
+  validates :review, presence: true, length: {maximum:200}, on: :publicize
 
 
   def self.looks(search, word)
