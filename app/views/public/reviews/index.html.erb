@@ -37,7 +37,7 @@
          <%= render "public/favorites/like", review: review %>
         </td>
         <td>
-           コメント数：<%= review.comments.count %>
+           コメント数：<%= render "public/comments/count" %>
          </td>
       </tr>
     <% end %>
