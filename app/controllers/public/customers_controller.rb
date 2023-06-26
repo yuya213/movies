@@ -2,7 +2,7 @@ class Public::CustomersController < ApplicationController
   before_action :ensure_correct_customer, only: [:edit, :update]
   # ゲストユーザーとしてログインした場合は閲覧を制限する
   # before_action :guest_check, only: [:update, :withdrawal]
-  # before_action :ensure_guest_customer, only: [:edit]#before_actionでeditアクション実行前に処理を行う
+  before_action :ensure_guest_customer, only: [:edit]#before_actionでeditアクション実行前に処理を行う
 
   def index
     @customers = Customer.all
@@ -51,5 +51,13 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path(current_customer)
     end
   end
+  
+  # ゲストユーザーを弾く
+    def ensure_guest_customer
+      @customer = Customer.find(params[:id])
+      if @customer.email == "guest@example.com"
+        redirect_to customer_path(current_customer) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      end
+    end
 
 end
