@@ -1,6 +1,7 @@
 class Public::CommentsController < ApplicationController
   # ゲストユーザーとしてログインした場合は閲覧を制限する
-  # before_action :guest_check, only: [:create, :destroy]
+  before_action :ensure_guest_customer
+
   
   def create
     
@@ -27,6 +28,13 @@ class Public::CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment)
   end
+  
+  # ゲストユーザーを弾く
+    def ensure_guest_customer
+      if current_customer.email == "guest@example.com"
+        redirect_to customer_path(current_customer) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      end
+    end
   
   
 end
