@@ -14,16 +14,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = current_customer
     if @customer.update(customer_params)
-      flash[:notice] = "会員情報を更新しました。"
-      redirect_to customers_path
+      redirect_to customer_path(@customer), notice: "会員情報を更新しました。"
     else
-      render :edit
+      render "edit"
     end
   end
 
@@ -42,16 +39,16 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :profile_image, :email, :introduction, :genre_id)
+    params.require(:customer).permit(:name, :profile_image, :email, :introduction)
   end
 
   def ensure_correct_customer
     @customer = Customer.find(params[:id])
     unless @customer == current_customer
-    redirect_to customer_path(current_customer)
+     redirect_to customer_path(current_customer)
     end
   end
-  
+
   # ゲストユーザーを弾く
     def ensure_guest_customer
       @customer = Customer.find(params[:id])

@@ -1,5 +1,5 @@
 <%= render 'layouts/search' %>
- <%= render 'layouts/genre' %>
+<%= render 'layouts/genre' %>
 
 <div class='container px-5 px-sm-0'>
   <div class='row'>
@@ -8,11 +8,7 @@
      <%= render 'info', customer: current_customer %>
     </div>
 
-
-
-
-
-     <div class='col-md-8 offset-md-1'>
+    <div class='col-md-8 offset-md-1'>
      <h2>会員一覧</h2>
      <%= render 'index', customers: @customers %>
     </div>

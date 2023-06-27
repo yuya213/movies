@@ -15,9 +15,11 @@
           <td>コメント数：<%= @review.comments.count %></td>
         </tr>
        </table>
+       
         <div id="comments">
           <%= render "admin/comments/show" , { review: @review , comment: @comment } %><br>
         </div>
+        
       </div>
   </div>
 </div>

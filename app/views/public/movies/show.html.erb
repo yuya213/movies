@@ -3,21 +3,20 @@
     <div class="col-lg-4">
       <%= image_tag @movie.image, size: "250x190" %>
     </div>
+    
     <div class="col-md-5">
       <h3 class="movie_name py-2"><%= @movie.name %></h3>
       <p class="movie_introduction py-2"><%= @movie.introduction %></p>
     </div>
-      
-      
+    
       <h3>レビュー</h3>
 
       <% @movie.reviews.each do |review| %>
       <div class="review">
-      <p><%= review.introduction %></p>
+         <p><%= review.introduction %></p>
       </div>
-     <% end %>
-     <%= link_to "レビューを書く", new_review_path(@movie) %>
-
+      <% end %>
+      <%= link_to "レビューを書く", new_review_path(@movie) %>
     </div>
   </div>
 </div>
