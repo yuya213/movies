@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row pt-5">
     <div class="col-md-8 ">
-      <h3><%= @customers.name %>様の会員情報編集</h3>
-      <%= form_with model: @customers, method: :patch, url: admin_customer_path(@customers) do |f| %>
+    <h3><%= @customers.name %>様の会員情報編集</h3>
+    <%= form_with model: @customers, method: :patch, url: admin_customer_path(@customers) do |f| %>
       
     <table class="table table-borderless">
       <tbody>
@@ -35,6 +35,6 @@
       </tbody>
     </table>
     <% end %>
-    </div>
   </div>
+ </div>
 </div>
