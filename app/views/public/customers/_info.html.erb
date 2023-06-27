@@ -18,6 +18,7 @@
       </a>
     </th>
   </tr>
+  
   <tr>
     <th>フォロワー</th>
     <th>
@@ -26,29 +27,27 @@
      </a>
     </th>
   </tr>
-
 </table>
-
 
 
 <div class='row'>
 
   <% if current_customer != customer %>
-          <% if current_customer.following?(customer) %>
-          <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: 'btn btn-danger' %>
-          <% else %>
-          <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: 'btn btn-success' %>
-          <% end %>
+     <% if current_customer.following?(customer) %>
+     <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: 'btn btn-danger' %>
+     <% else %>
+     <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: 'btn btn-success' %>
+     <% end %>
+     
+  <% else %>
 
-      <% else %>
-
-  <div class>
-      <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-success" %>
-    </div>
+   <div class>
+     <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-success" %>
+   </div>
 
   <% end %>
   </div>
   
-   <div class='row'>
-      <%= link_to "レビューを書く", new_review_path(customer), class:"btn btn-success" %>
-    </div>
+   <div class="form-group">
+      <%= link_to "レビューを書く", new_review_path(customer), class:"r-5 btn btn-sm btn-warning text-white'" %>
+   </div>
