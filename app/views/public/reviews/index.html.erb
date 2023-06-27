@@ -7,7 +7,7 @@
 
       <h2>投稿画面へ</h2>
 
-    <%= link_to "レビューを書く", new_review_path(current_customer), class:"btn btn-success" %>
+    <%= link_to "レビューを書く", new_review_path(current_customer), class:"btn btn-light" %>
 
     </div>
 
@@ -37,7 +37,7 @@
          <%= render "public/favorites/like", review: review %>
         </td>
         <td>
-           コメント数：<%= render "public/comments/count" %>
+           コメント数：<%= render "public/comments/count", review: review %>
          </td>
       </tr>
     <% end %>

@@ -1,4 +1,9 @@
-<table class="table table-hover table-inverse">
+<%= render 'layouts/search' %>
+ <%= render 'layouts/genre' %>
+ <div class='container'>
+  <div class='row'>
+  <div class="col-md-12 col-md-offset-1 mx-auto mt-3">
+　<table class="table table-hover table-inverse">
   <% if @range == "Customer" %>
   <h2>会員検索 "<%= @word %>"</h2>
   <thead>
@@ -10,12 +15,15 @@
     <tbody>
       <% @customers.each do |customer| %>
         <tr>
-          <td><%= image_tag customer.get_profile_image, size:'100x100' %></td>
+          <td><%= link_to(review.customer) do %>
+            <%= image_tag customer.get_profile_image, size:'100x100' %>
+            <% end %>
+          </td>
           <td><%= customer.name %></td>
           <td><%= customer.introduction %></td>
         </tr>
       <% end %>
-      
+
     </tbody>
   <% else %>
   <h2>レビュー検索 "<%= @word %>"</h2>
@@ -30,11 +38,18 @@
     <tbody>
       <% @reviews.each do |review| %>
         <tr>
-          <td><%= image_tag review.customer.get_profile_image, size:'50x50' %></td>
+          <td><%= link_to(review.customer) do %>
+            <%= image_tag review.customer.get_profile_image, size:'50x50' %><br>
+            <%= review.customer.name %>
+            <% end %>
+          </td>
           <td><%= link_to review.title,review %></td>
           <td><%= review.review %></td>
         </tr>
       <% end %>
     </tbody>
-  <% end %>
-</table>
+   <% end %>
+  </table>
+  </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
-<div class="container">
-    <div class="row my-3">
-        <div class="col-sm-8 px-sm-0 offset-sm-1">
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>映画一覧</h1>
 
 <div>
@@ -20,9 +20,7 @@
         <% while i < movieinfo['table']['results'].count %>
             <div class="card">
                 <div class="card-upperinfo">
-                    <%if movieinfo['table']['results'][i]['table']['title'].present?%>
-                        <h3><%#= link_to movieinfo['table']['results'][i]['table']['title'],detail_path(movieinfo['table']['results'][i]['table']['id']) %></h3>
-                    <%end%>
+
 
                     <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
                         <p class="release-date"><%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
@@ -30,7 +28,7 @@
                 </div>
 
 
-                
+
                 <% if movieinfo['table']['results'][i]['table']['poster_path'].present? %>
                     <p><%= image_tag 'https://image.tmdb.org/t/p/w1280' + movieinfo['table']['results'][i]['table']['poster_path'],class: "card-img" %></p>
                 <%end%>
@@ -48,9 +46,7 @@
         <% while i < movieinfo['table']['results'].count %>
             <div class="card">
                 <div class="card-upperinfo">
-                    <%if movieinfo['table']['results'][i]['table']['title'].present?%>
-                        <h3><%#= link_to movieinfo['table']['results'][i]['table']['title'], detail_path(movieinfo['table']['results'][i]['table']['id'])%></h3>
-                    <%end%>
+
 
                     <% if movieinfo['table']['results'][i]['table']['release_date'].present? %>
                         <p class="release-date"><%= movieinfo['table']['results'][i]['table']['release_date'] %></p>
