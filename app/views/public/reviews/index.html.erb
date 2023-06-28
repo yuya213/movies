@@ -13,7 +13,7 @@
 
   <div class='col-md-8 offset-md-1'>
    <h2>投稿一覧</h2>
-   
+
   <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -33,7 +33,7 @@
         </td>
         <td><%= review.title %></td>
         <td><%= review.genre.name %></td>
-        <td><%= review.review %></td>
+        <td><%= review.body %></td>
         <td id="favorite_buttons_<%= review.id %>">
          <%= render "public/favorites/like", review: review %>
         </td>

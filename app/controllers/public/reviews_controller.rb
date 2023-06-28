@@ -16,21 +16,13 @@ class Public::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.customer_id = current_customer.id
-    # 投稿ボタンを押下した場合
-    # if params[:review]
-      if @review.save# (context: :publicize)
-        redirect_to review_path(@review.id), notice: "レビューを投稿しました！"
-      else
-        render :new
-      end
-    # 下書きボタンを押下した場合
-    # else
-      # if @review.update(is_draft: true)
-        # redirect_to customer_path(current_customer), notice: "レビューを下書き保存しました！"
-      # else
-        # render :new, alert: "登録できませんでした。お手数ですが、入力内容をご確認のうえ再度お試しください"
-     #  end
-    # end
+
+    if @review.save
+     redirect_to review_path(@review.id), notice: "レビューを投稿しました！"
+    else
+      render :new
+    end
+
     # if @review.save
       # redirect_to review_path(@review.id), notice: "Review created successfully."
     # else
@@ -78,7 +70,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :review, :customer_id, :genre_id)
+    params.require(:review).permit(:title, :body, :customer_id, :genre_id)
   end
 
   def genre_params

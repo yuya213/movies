@@ -10,7 +10,7 @@
           </td>
           <td><%= @review.title %></td>
           <td><%= @review.genre.name %></td>
-          <td><%= @review.review %></td>
+          <td><%= @review.body %></td>
           <td><%= link_to '削除', admin_review_path(@review), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <td>コメント数：<%= @review.comments.count %></td>
         </tr>
