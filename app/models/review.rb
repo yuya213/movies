@@ -11,7 +11,6 @@ class Review < ApplicationRecord
 
   validates :title, presence: true
   validates :review, presence: true, length: {maximum:200}
-  attribute :review, :text
 
 
   def self.looks(search, word)
