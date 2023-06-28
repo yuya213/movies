@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  belongs_to :genre
+  belongs_to :genre, optional: true
 
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -22,7 +22,7 @@ class Customer < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :name, length: { minimum: 2, maximum: 20 }
   validates :introduction, length: { maximum: 50 }
 
   def follow(customer_id)

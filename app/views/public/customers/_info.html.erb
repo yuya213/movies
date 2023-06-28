@@ -4,7 +4,7 @@
 	  <th>名前</th>
 	  <th><%= customer.name %></th>
   </tr>
-  
+
   <tr>
 	  <th>自己紹介</th>
 	  <th><%= customer.introduction %></th>
@@ -18,7 +18,7 @@
       </a>
     </th>
   </tr>
-  
+
   <tr>
     <th>フォロワー</th>
     <th>
@@ -38,16 +38,16 @@
      <% else %>
      <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: 'btn btn-success' %>
      <% end %>
-     
+
   <% else %>
 
-   <div class>
+   <div class="form-group">
      <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-success" %>
    </div>
 
   <% end %>
   </div>
-  
+
    <div class="form-group">
-      <%= link_to "レビューを書く", new_review_path(customer), class:"r-5 btn btn-sm btn-warning text-white'" %>
+      <%= link_to "レビューを書く", new_review_path(customer), class:"btn btn-success" %>
    </div>

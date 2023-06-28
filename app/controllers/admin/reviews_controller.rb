@@ -8,9 +8,10 @@ class Admin::ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to root_path
+    review = Review.find(params[:id])
+    @customer = review.customer
+    review.destroy
+    redirect_to admin_customer_path(@customer)
   end
 
 end
