@@ -41,7 +41,7 @@ class Public::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to review_path(@review), notice: "You have updated review successfully."
+      redirect_to review_path(@review), notice: "レビューを編集しました！"
     else
       @reviews = Review.all
       render "edit"
@@ -51,7 +51,7 @@ class Public::ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to reviews_path
+    redirect_to reviews_path, notice: "レビューを削除しました！"
   end
 
   def index

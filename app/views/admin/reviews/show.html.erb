@@ -11,15 +11,14 @@
           <td><%= @review.title %></td>
           <td><%= @review.genre.name %></td>
           <td><%= @review.review %></td>
-          <td><%= link_to '削除', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+          <td><%= link_to '削除', admin_review_path(@review), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <td>コメント数：<%= @review.comments.count %></td>
         </tr>
        </table>
-       
+
         <div id="comments">
           <%= render "admin/comments/show" , { review: @review , comment: @comment } %><br>
         </div>
-        
       </div>
   </div>
 </div>
