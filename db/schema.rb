@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2023_06_21_120301) do
     t.text "review"
     t.string "title"
     t.integer "genre_id"
+    t.string "text"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
