@@ -10,7 +10,7 @@ class Review < ApplicationRecord
   belongs_to :movie, optional: true
 
   validates :title, presence: true
-  validates :review, presence: true, length: {maximum:200}
+  validates :introduction, presence: true, length: {maximum:200}
 
 
   def self.looks(search, word)

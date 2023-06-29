@@ -70,7 +70,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :review, :customer_id, :genre_id)
+    params.require(:review).permit(:title, :introduction, :customer_id, :genre_id)
   end
 
   def genre_params

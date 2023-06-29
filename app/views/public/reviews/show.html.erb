@@ -12,7 +12,7 @@
           </td>
           <td><%= link_to @review.title, @review %></td>
           <td><%= @review.genre.name %></td>
-          <td><%= @review.review %></td>
+          <td><%= @review.introduction %></td>
             <% if @review.customer == current_customer %>
             <td><%= link_to '編集', edit_review_path(@review), class: "btn btn-sm btn-success" %></td>
             <% end %>
