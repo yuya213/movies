@@ -11,7 +11,7 @@ class Public::CommentsController < ApplicationController
     @comment.review_id = @review.id
     @comment.save
 
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -20,7 +20,7 @@ class Public::CommentsController < ApplicationController
     @comment.destroy
     @review = Review.find(params[:review_id])
 
-    redirect_back(fallback_location: root_path)
+    #redirect_back(fallback_location: root_path)
   end
 
    private
