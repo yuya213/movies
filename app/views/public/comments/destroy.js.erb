@@ -1,2 +1,2 @@
-$('#comments').html("<%= j(render "public/comments/show", review: @review) %>");
-$('#count').html("<%= j(render "public/comments/count", review: @review) %>");
+$('#comments').html("<%= j(render "public/comments/show", review: @comment.review) %>");
+$('#count').html("<%= j(render "public/comments/count", review: @comment.review) %>");
