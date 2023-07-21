@@ -20,7 +20,9 @@
             <% if @review.customer == current_customer %>
             <td><%= link_to '削除', @review, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
             <% end %>
-            <td>コメント数：<%= @review.comments.count %></td>
+            <td class="comments-count">
+            <%= render "public/comments/count", review: @review %>
+            </td>
         </tr>
       </table>
 
