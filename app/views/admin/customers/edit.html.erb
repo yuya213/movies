@@ -3,7 +3,7 @@
     <div class="col-md-8 ">
     <h3><%= @customers.name %>様の会員情報編集</h3>
     <%= form_with model: @customers, method: :patch, url: admin_customer_path(@customers) do |f| %>
-      
+
     <table class="table table-borderless">
       <tbody>
         <tr>
@@ -30,6 +30,9 @@
         <tr>
           <td>
             <%= f.submit "変更を保存", class: 'btn btn-success' %>
+          </td>
+          <td>
+             <%= link_to '削除', admin_customer_path(@customers), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
           </td>
         </tr>
       </tbody>
