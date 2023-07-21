@@ -5,7 +5,7 @@ class Public::CustomersController < ApplicationController
   before_action :ensure_guest_customer, only: [:edit]#before_actionでeditアクション実行前に処理を行う
 
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page])
   end
 
   def show
