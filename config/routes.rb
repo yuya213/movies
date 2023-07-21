@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
     resources :customers, only:[:index, :show, :edit, :update, :destroy]
-    resources :genres, only:[:index, :edit, :create, :update]
+    resources :genres, only:[:index, :edit, :create, :update, :destroy]
     resources :movies, only:[:index, :new, :create, :show, :edit, :update]
     resources :reviews, only:[:show, :update, :destroy] do
      resources :comments, only: [:create, :destroy]
