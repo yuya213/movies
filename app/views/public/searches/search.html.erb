@@ -15,7 +15,7 @@
     <tbody>
       <% @customers.each do |customer| %>
         <tr>
-          <td><%= link_to(review.customer) do %>
+          <td><%= link_to(customer) do %>
             <%= image_tag customer.get_profile_image, size:'100x100' %>
             <% end %>
           </td>
