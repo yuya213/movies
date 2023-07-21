@@ -1,0 +1,31 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>映画タイトル</th>
+      <th>ジャンル</th>
+      <th>レビュー</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% review.each do |review| %>
+      <tr>
+        <td><%= link_to(review) do %>
+          <%= image_tag review.customer.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td><%= review.title %></td>
+        <td><%= review.genre.name %></td>
+        <td><%= review.introduction %></td>
+        <td id="favorite_buttons_<%= review.id %>">
+         <%= render "public/favorites/like", review: review %>
+        </td>
+        <td>
+          <%= render "public/comments/count", review: review %>
+        </td>
+      </tr>
+     <% end %>
+    </tbody>
+   </table>
+   <%= paginate review %>
