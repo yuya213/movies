@@ -21,6 +21,18 @@
           </td>
           <td><%= customer.name %></td>
           <td><%= customer.introduction %></td>
+          <td>フォロー数: <%= customer.followings.count %></td>
+          <td>フォロワー数: <%= customer.followers.count %></td>
+          <td>
+          <% unless current_customer == customer %>
+          <% if current_customer.following?(customer) %>
+           <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete %>
+          <% else %>
+           <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post %>
+          <% end %>
+          </td>
+          <% end %>
+          <td><%= link_to '詳細', customer %></td>
         </tr>
       <% end %>
 
@@ -31,6 +43,7 @@
     <tr></tr>
       <th></th>
       <th>映画タイトル</th>
+      <th>ジャンル</th>
       <th>レビュー</th>
       <th colspan="3"></th>
     </tr>
@@ -43,8 +56,15 @@
             <%= review.customer.name %>
             <% end %>
           </td>
-          <td><%= link_to review.title,review %></td>
+          <td><%= review.title %></td>
+          <td><%= review.genre.name %></td>
           <td><%= review.introduction %></td>
+          <td id="favorite_buttons_<%= review.id %>">
+           <%= render "public/favorites/like", review: review %>
+          </td>
+          <td>
+           <%= render "public/comments/count", review: review %>
+          </td>
         </tr>
       <% end %>
      </tbody>
